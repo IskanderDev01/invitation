@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 export const Ceremony = () => {
     return (
         <motion.div
-            className="bg-[#e1d9d4] py-5 px-10"
+            className="bg-[#e1d9d4] py-5 px-10 flex flex-col justify-center items-center"
             style={{
                 backgroundImage: `url(${photo1})`,
                 backgroundRepeat: 'no-repeat',
