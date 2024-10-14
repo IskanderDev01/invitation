@@ -61,6 +61,23 @@ export const Ceremony = () => {
                 { scale: 1, opacity: 1, duration: 2, ease: 'power1.inOut' },
             );
 
+        // Анимация фона с эффектом всплеска (бесконечное повторение)
+        gsap.to('.bg-animation', {
+            backgroundSize: '55%', // Конечный размер
+            duration: 5,
+            ease: 'power1.inOut',
+            repeat: -1, // Бесконечное повторение
+            yoyo: true, // Эффект yoyo
+        });
+
+        // Цветовая анимация фона (бесконечное повторение)
+        gsap.to('.bg-animation', {
+            duration: 5,
+            ease: 'power1.inOut',
+            repeat: -1, // Бесконечное повторение
+            yoyo: true, // Эффект yoyo
+        });
+
         return () => {
             // Остановка анимации при размонтировании
             gsap.killTweensOf([
@@ -76,7 +93,7 @@ export const Ceremony = () => {
 
     return (
         <div
-            className="bg-[#e1d9d4] py-5 px-10 flex flex-col justify-center items-center"
+            className="bg-[#e1d9d4] py-5 px-10 flex flex-col justify-center items-center bg-animation"
             style={{
                 backgroundImage: `url(${photo1})`,
                 backgroundRepeat: 'no-repeat',
