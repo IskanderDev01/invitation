@@ -12,10 +12,10 @@ export const Our_video = () => {
                 backgroundImage: `url(${photo3})`,
             }}
             animate={{
-                backgroundSize: ['40%', '45%', '40%'], // Увеличиваем и уменьшаем размер
+                backgroundSize: ['20%', '45%', '20%'], // Увеличиваем и уменьшаем размер
             }}
             transition={{
-                duration: 5, // Продолжительность одного цикла
+                duration: 8, // Продолжительность одного цикла
                 repeat: Infinity, // Бесконечное повторение
                 ease: 'easeInOut', // Плавное движение
             }}

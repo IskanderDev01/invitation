@@ -1,12 +1,76 @@
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import photo1 from '../../../../shared/assets/photo1.png';
 import photo2 from '../../../../shared/assets/photo1.jpg';
-import { motion } from 'framer-motion';
 
 export const Main = () => {
-    const imgVariants = {
-        hidden: { scale: 0.8 }, // Начальный размер (80%)
-        visible: { scale: 1, transition: { duration: 1 } }, // Конечный размер (100%)
-    };
+    const textRef1 = useRef<HTMLDivElement>(null);
+    const textRef2 = useRef<HTMLDivElement>(null);
+    const imgRef = useRef<HTMLImageElement>(null);
+
+    useEffect(() => {
+        // Анимация текста
+        const tl = gsap.timeline({ repeat: -1 }); // Устанавливаем количество повторений на бесконечное
+
+        tl.fromTo(
+            textRef1.current,
+            { opacity: 0, scale: 0.6, y: -50, rotation: -10 },
+            {
+                opacity: 1,
+                scale: 1.2,
+                y: 0,
+                rotation: 0,
+                duration: 2.5,
+                ease: 'bounce.out',
+            },
+        ).fromTo(
+            textRef2.current,
+            { opacity: 0, scale: 0.6, y: 50, rotation: 10 },
+            {
+                opacity: 1,
+                scale: 1.2,
+                y: 0,
+                rotation: 0,
+                duration: 2.5,
+                ease: 'bounce.out',
+            },
+            '<',
+        );
+
+        // Анимация изображения (без повторения)
+        gsap.fromTo(
+            imgRef.current,
+            { scale: 0.8, rotateY: 0 },
+            { scale: 1, rotateY: 360, duration: 2, ease: 'power1.inOut' },
+        );
+
+        // Анимация фона с эффектом всплеска (бесконечное повторение)
+        gsap.to('.bg-animation', {
+            backgroundSize: '45%', // Конечный размер
+            duration: 5,
+            ease: 'power1.inOut',
+            repeat: -1, // Бесконечное повторение
+            yoyo: true, // Эффект yoyo
+        });
+
+        // Цветовая анимация фона (бесконечное повторение)
+        gsap.to('.bg-animation', {
+            duration: 5,
+            ease: 'power1.inOut',
+            repeat: -1, // Бесконечное повторение
+            yoyo: true, // Эффект yoyo
+        });
+
+        return () => {
+            // Удаляем анимации при размонтировании компонента
+            gsap.killTweensOf([
+                textRef1.current,
+                textRef2.current,
+                imgRef.current,
+            ]);
+        };
+    }, []);
+
     return (
         <div
             style={{
@@ -14,54 +78,34 @@ export const Main = () => {
                     'linear-gradient(to bottom, #e1d9d4 75%, #fffbfb 25%)',
             }}
         >
-            <motion.div
-                className="text-[24px] text-center font-parisienne p-6 h-[170px] bg-contain"
+            <div
+                className="text-[24px] text-center font-parisienne p-6 h-[170px] bg-contain bg-animation"
                 style={{
                     backgroundImage: `url(${photo1})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'right center',
                     backgroundColor: 'transparent',
                 }}
-                animate={{
-                    backgroundSize: ['35%', '40%', '35%'], // Увеличиваем и уменьшаем размер
-                }}
-                transition={{
-                    duration: 5, // Продолжительность одного цикла
-                    repeat: Infinity, // Бесконечное повторение
-                    ease: 'easeInOut', // Плавное движение
-                }}
             >
                 <div className="flex justify-center items-center">
-                    <motion.div
-                        className="font-parisienne"
-                        initial={{ opacity: 0, x: -50 }} // Исходное положение для Ashlie
-                        animate={{ opacity: 1, x: 0 }} // Конечное положение
-                        transition={{ duration: 1.5 }} // Плавная анимация
-                    >
+                    <div ref={textRef1} className="font-parisienne">
                         Ashlie
-                    </motion.div>
-                    <div className="px-2">&</div>
-                    <motion.div
-                        className="font-parisienne"
-                        initial={{ opacity: 0, x: 50 }} // Исходное положение для Gregory
-                        animate={{ opacity: 1, x: 0 }} // Конечное положение
-                        transition={{ duration: 1.5 }} // Плавная анимация
-                    >
+                    </div>
+                    <div className="px-4">&</div>
+                    <div ref={textRef2} className="font-parisienne">
                         Gregory
-                    </motion.div>
+                    </div>
                 </div>
-            </motion.div>
-            <motion.div className="flex justify-center -mt-[65px] bg-transparent">
-                <motion.img
+            </div>
+            <div className="flex justify-center -mt-[65px] bg-transparent">
+                <img
+                    ref={imgRef}
                     src={photo2}
                     alt="photo"
                     width={300}
                     className="bg-transparent"
-                    initial="hidden" // Устанавливаем начальное состояние
-                    animate="visible" // Анимируем к видимому состоянию
-                    variants={imgVariants} // Применяем анимационные варианты
                 />
-            </motion.div>
+            </div>
         </div>
     );
 };
