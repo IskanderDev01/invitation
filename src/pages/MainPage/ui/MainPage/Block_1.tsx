@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import photo2 from '../../../../shared/assets/photo2.png';
 
 export const Block_1 = () => {
@@ -11,17 +12,25 @@ export const Block_1 = () => {
                     the wedding of
                 </div>
             </div>
-            <div
+            <motion.div
                 className="font-parisienne text-[34px] h-[450px] bg-center bg-no-repeat bg-contain flex flex-col justify-center items-center "
                 style={{
                     backgroundImage: `url(${photo2})`,
                     backgroundSize: '145%',
                 }}
+                animate={{
+                    backgroundSize: ['145%', '155%', '145%'], // Увеличиваем и уменьшаем размер
+                }}
+                transition={{
+                    duration: 5, // Продолжительность одного цикла
+                    repeat: Infinity, // Бесконечное повторение
+                    ease: 'easeInOut', // Плавное движение
+                }}
             >
                 Ashlie
                 <span className="text-[14px] font-sans">to</span>
                 Gregory
-            </div>
+            </motion.div>
             <div className="px-10 flex flex-col justify-center items-center pt-14 pb-10">
                 <div className="text-[24px] font-parisienne">
                     September 10 2024

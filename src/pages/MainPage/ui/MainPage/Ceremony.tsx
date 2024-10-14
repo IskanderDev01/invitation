@@ -1,15 +1,24 @@
 import photo1 from '../../../../shared/assets/photo1.png';
 import drink from '../../../../shared/assets/drink.png';
 import ceremony from '../../../../shared/assets/ceremony.png';
+import { motion } from 'framer-motion';
 
 export const Ceremony = () => {
     return (
-        <div
+        <motion.div
             className="bg-[#e1d9d4] py-5 px-10"
             style={{
                 backgroundImage: `url(${photo1})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'right top',
+            }}
+            animate={{
+                backgroundSize: ['40%', '45%', '40%'], // Увеличиваем и уменьшаем размер
+            }}
+            transition={{
+                duration: 5, // Продолжительность одного цикла
+                repeat: Infinity, // Бесконечное повторение
+                ease: 'easeInOut', // Плавное движение
             }}
         >
             <img src={drink} width={300} className="pb-5" />
@@ -26,6 +35,6 @@ export const Ceremony = () => {
                 19:00
             </div>
             <img src={ceremony} width={300} />
-        </div>
+        </motion.div>
     );
 };

@@ -1,6 +1,6 @@
 import photo5 from '../../../../shared/assets/photo5.png';
 
-export const The_Weddig = () => {
+export const The_Wedding = () => {
     return (
         <>
             <div

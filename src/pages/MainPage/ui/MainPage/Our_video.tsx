@@ -2,13 +2,22 @@ import { Button } from 'antd';
 import photo3 from '../../../../shared/assets/photo4.png';
 import { faArrowDown, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { motion } from 'framer-motion';
 
 export const Our_video = () => {
     return (
-        <div
+        <motion.div
             className="px-10 py-5  bg-no-repeat bg-right-top bg-[#fffbfb]"
             style={{
                 backgroundImage: `url(${photo3})`,
+            }}
+            animate={{
+                backgroundSize: ['40%', '45%', '40%'], // Увеличиваем и уменьшаем размер
+            }}
+            transition={{
+                duration: 5, // Продолжительность одного цикла
+                repeat: Infinity, // Бесконечное повторение
+                ease: 'easeInOut', // Плавное движение
             }}
         >
             <div className="text-[34px] font-parisienne pt-8 text-center">
@@ -28,6 +37,6 @@ export const Our_video = () => {
                     download <FontAwesomeIcon icon={faArrowDown} />
                 </Button>
             </div>
-        </div>
+        </motion.div>
     );
 };

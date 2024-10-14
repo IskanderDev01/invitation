@@ -1,11 +1,20 @@
+import { motion } from 'framer-motion';
 import photo3 from '../../../../shared/assets/photo3.png';
 
 export const Our_story = () => {
     return (
-        <div
+        <motion.div
             className="px-10 py-5  bg-no-repeat bg-left-top bg-[#fffbfb]"
             style={{
                 backgroundImage: `url(${photo3})`,
+            }}
+            animate={{
+                backgroundSize: ['40%', '45%', '40%'], // Увеличиваем и уменьшаем размер
+            }}
+            transition={{
+                duration: 5, // Продолжительность одного цикла
+                repeat: Infinity, // Бесконечное повторение
+                ease: 'easeInOut', // Плавное движение
             }}
         >
             <div className="text-[34px] font-parisienne pt-8 text-center">
@@ -17,6 +26,6 @@ export const Our_story = () => {
                 cupidatat non proident, sunt in culpa qui officia deserunt
                 mollit anim id est laborum.
             </div>
-        </div>
+        </motion.div>
     );
 };
