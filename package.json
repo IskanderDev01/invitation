@@ -22,6 +22,7 @@
     "react-player": "^2.16.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.24.0",
+    "styled-components": "^6.1.13",
     "three": "^0.169.0"
   },
   "devDependencies": {

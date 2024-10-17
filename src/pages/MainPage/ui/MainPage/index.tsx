@@ -1,3 +1,4 @@
+// import AudioPlayer from './AudioPlayer';
 import { Block_1 } from './Block_1';
 import { Ceremony } from './Ceremony';
 import { Main } from './Main';
@@ -8,6 +9,7 @@ import { The_Wedding } from './The_Weddig';
 export const WeddingInvitation = () => {
     return (
         <div className="text-[#9D8280] bg-[#9D8280] flex flex-col justify-center">
+            {/* <AudioPlayer /> */}
             <Main />
             <Block_1 />
             <Our_story />

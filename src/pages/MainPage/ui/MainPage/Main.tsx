@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import photo1 from '../../../../shared/assets/photo1.png';
 import photo2 from '../../../../shared/assets/photo1.jpg';
+import ramka from '../../../../shared/assets/ramka2.png';
 
 export const Main = () => {
     const textRef1 = useRef<HTMLDivElement>(null);
@@ -97,14 +98,15 @@ export const Main = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex justify-center -mt-[65px] bg-transparent">
+            <div ref={imgRef} className="relative flex justify-center -mt-[65px] bg-transparent">
                 <img
-                    ref={imgRef}
                     src={photo2}
                     alt="photo"
-                    width={300}
-                    className="bg-transparent"
+                    width={320}
+                    height={340}
+                    className="bg-transparent rounded-full shadow-lg"
                 />
+                <img src={ramka} width={400} className="absolute -mt-28" />
             </div>
         </div>
     );
