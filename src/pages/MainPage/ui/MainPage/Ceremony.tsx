@@ -11,19 +11,20 @@ export const Ceremony = () => {
     const ceremonyTextRef = useRef<HTMLDivElement>(null);
     const timeRef1 = useRef<HTMLDivElement>(null);
     const timeRef2 = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const tl = gsap.timeline({ repeat: -1, yoyo: true });
+        const tl = gsap.timeline({ paused: true });
 
         // Анимация изображения напитка
         tl.fromTo(
             drinkRef.current,
-            { scale: 0.8, opacity: 0 }, // Начальное состояние
+            { scale: 0.8, opacity: 0 },
             { scale: 1, opacity: 1, duration: 1.5, ease: 'power1.inOut' },
         )
             .fromTo(
                 drinksTextRef.current,
-                { y: -30, opacity: 0, rotation: -10 }, // Начальное состояние текста напитков
+                { y: -30, opacity: 0, rotation: -10 },
                 {
                     y: 0,
                     opacity: 1,
@@ -34,13 +35,13 @@ export const Ceremony = () => {
             )
             .fromTo(
                 timeRef1.current,
-                { y: -20, opacity: 0 }, // Начальное состояние времени
+                { y: -20, opacity: 0 },
                 { y: 0, opacity: 1, duration: 1.5, ease: 'power1.inOut' },
-                '<', // Начинаем анимацию времени одновременно с анимацией напитков
+                '<',
             )
             .fromTo(
                 ceremonyTextRef.current,
-                { y: -30, opacity: 0, rotation: 10 }, // Начальное состояние текста церемонии
+                { y: -30, opacity: 0, rotation: 10 },
                 {
                     y: 0,
                     opacity: 1,
@@ -51,48 +52,42 @@ export const Ceremony = () => {
             )
             .fromTo(
                 timeRef2.current,
-                { y: -20, opacity: 0 }, // Начальное состояние времени
+                { y: -20, opacity: 0 },
                 { y: 0, opacity: 1, duration: 1.5, ease: 'power1.inOut' },
-                '<', // Начинаем анимацию времени одновременно с анимацией церемонии
+                '<',
             )
             .fromTo(
                 ceremonyRef.current,
-                { scale: 0.8, opacity: 0 }, // Начальное состояние
+                { scale: 0.8, opacity: 0 },
                 { scale: 1, opacity: 1, duration: 2, ease: 'power1.inOut' },
             );
 
-        // Анимация фона с эффектом всплеска (бесконечное повторение)
-        gsap.to('.bg-animation', {
-            backgroundSize: '55%', // Конечный размер
-            duration: 5,
-            ease: 'power1.inOut',
-            repeat: -1, // Бесконечное повторение
-            yoyo: true, // Эффект yoyo
-        });
+        // IntersectionObserver для запуска анимации при прокрутке
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        tl.play(); // Запускаем анимацию
+                        observer.disconnect(); // Отключаем наблюдатель
+                    }
+                });
+            },
+            { threshold: 0.1 },
+        );
 
-        // Цветовая анимация фона (бесконечное повторение)
-        gsap.to('.bg-animation', {
-            duration: 5,
-            ease: 'power1.inOut',
-            repeat: -1, // Бесконечное повторение
-            yoyo: true, // Эффект yoyo
-        });
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
 
         return () => {
-            // Остановка анимации при размонтировании
-            gsap.killTweensOf([
-                drinkRef.current,
-                ceremonyRef.current,
-                drinksTextRef.current,
-                ceremonyTextRef.current,
-                timeRef1.current,
-                timeRef2.current,
-            ]);
+            observer.disconnect();
+            tl.kill();
         };
     }, []);
 
     return (
         <div
+            ref={containerRef}
             className="bg-[#e1d9d4] py-5 px-10 flex flex-col justify-center items-center bg-animation"
             style={{
                 backgroundImage: `url(${photo1})`,
@@ -101,7 +96,7 @@ export const Ceremony = () => {
                 overflow: 'hidden',
             }}
         >
-            <img ref={drinkRef} src={drink} width={300} className="pb-5" />
+            <img ref={drinkRef} src={drink} width={300} className="pb-5 rounded-lg" />
             <div
                 ref={drinksTextRef}
                 className="text-[24px] font-parisienne text-center"
@@ -126,7 +121,7 @@ export const Ceremony = () => {
             >
                 19:00
             </div>
-            <img ref={ceremonyRef} src={ceremony} width={300} />
+            <img ref={ceremonyRef} src={ceremony} width={300} className="rounded-lg" />
         </div>
     );
 };

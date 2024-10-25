@@ -11,7 +11,7 @@ export const Main = () => {
 
     useEffect(() => {
         // Анимация текста
-        const tl = gsap.timeline({ repeat: -1 }); // Устанавливаем количество повторений на бесконечное
+        const tl = gsap.timeline({ repeat: 0 }); // Устанавливаем количество повторений на бесконечное
 
         tl.fromTo(
             textRef1.current,
@@ -74,13 +74,14 @@ export const Main = () => {
 
     return (
         <div
+        className='pb-10'
             style={{
                 background:
                     'linear-gradient(to bottom, #e1d9d4 75%, #fffbfb 25%)',
             }}
         >
             <div
-                className="text-[24px] text-center font-parisienne p-6 h-[170px] bg-contain bg-animation"
+                className="text-[24px] text-center font-parisienne p-6 mb-5 h-[170px] bg-contain bg-animation"
                 style={{
                     backgroundImage: `url(${photo1})`,
                     backgroundRepeat: 'no-repeat',
@@ -98,8 +99,9 @@ export const Main = () => {
                     </div>
                 </div>
             </div>
-            <div ref={imgRef} className="relative flex justify-center -mt-[65px] bg-transparent">
+            <div className="relative flex justify-center -mt-[65px] bg-transparent">
                 <img
+                    ref={imgRef}
                     src={photo2}
                     alt="photo"
                     width={320}
