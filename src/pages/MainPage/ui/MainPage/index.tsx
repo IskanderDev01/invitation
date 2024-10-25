@@ -8,8 +8,7 @@ import { Our_video } from './Our_video';
 
 export const WeddingInvitation = () => {
     return (
-        <div className="text-[#9D8280] bg-[#9D8280] flex flex-col justify-center pb-10">
-            {/* <AudioPlayer /> */}
+        <div className="text-[#9D8280] bg-[#9D8280] flex flex-col justify-center">
             <Main />
             <Block_1 />
             <Our_story />

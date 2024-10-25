@@ -88,7 +88,7 @@ export const Ceremony = () => {
     return (
         <div
             ref={containerRef}
-            className="bg-[#e1d9d4] py-5 px-10 flex flex-col justify-center items-center bg-animation"
+            className="bg-[#e1d9d4] py-5 flex flex-col justify-center items-center bg-animation"
             style={{
                 backgroundImage: `url(${photo1})`,
                 backgroundRepeat: 'no-repeat',
@@ -96,7 +96,12 @@ export const Ceremony = () => {
                 overflow: 'hidden',
             }}
         >
-            <img ref={drinkRef} src={drink} width={300} className="pb-5 rounded-lg" />
+            <img
+                ref={drinkRef}
+                src={drink}
+                width={300}
+                className="pb-5 rounded-lg"
+            />
             <div
                 ref={drinksTextRef}
                 className="text-[24px] font-parisienne text-center"
@@ -121,7 +126,12 @@ export const Ceremony = () => {
             >
                 19:00
             </div>
-            <img ref={ceremonyRef} src={ceremony} width={300} className="rounded-lg" />
+            <img
+                ref={ceremonyRef}
+                src={ceremony}
+                width={300}
+                className="rounded-lg"
+            />
         </div>
     );
 };
