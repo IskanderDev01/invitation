@@ -1,7 +1,4 @@
-import { Button } from 'antd';
 import photo3 from '../../../../shared/assets/photo4.png';
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
 import { VideoPlayerComponent } from './VideoPlayerComponent';
 

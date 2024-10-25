@@ -60,7 +60,7 @@ export const InvitationForm = () => {
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 mb-4 text-[#9D8280] bg-[#f9f5f5] rounded-lg border border-[#9D8280] focus:outline-none focus:ring-2 focus:ring-[#9D8280] transition-shadow"
+                    className="w-full px-4 py-3 mb-4 text-[#9D8280] bg-[#f9f5f5] rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-[#9D8280] transition-shadow"
                     placeholder="Enter your first name"
                 />
 
@@ -73,7 +73,7 @@ export const InvitationForm = () => {
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 mb-4 text-[#9D8280] bg-[#f9f5f5] rounded-lg border border-[#9D8280] focus:outline-none focus:ring-2 focus:ring-[#9D8280] transition-shadow"
+                    className="w-full px-4 py-3 mb-4 text-[#9D8280] bg-[#f9f5f5] rounded-lg border-none focus:outline-none focus:ring-2 focus:ring-[#9D8280] transition-shadow"
                     placeholder="Enter your last name"
                 />
 

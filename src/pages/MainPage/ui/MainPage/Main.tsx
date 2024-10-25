@@ -74,7 +74,7 @@ export const Main = () => {
 
     return (
         <div
-        className='pb-10'
+            className="pb-10"
             style={{
                 background:
                     'linear-gradient(to bottom, #e1d9d4 75%, #fffbfb 25%)',
@@ -104,9 +104,9 @@ export const Main = () => {
                     ref={imgRef}
                     src={photo2}
                     alt="photo"
-                    width={320}
+                    width={290}
                     height={340}
-                    className="bg-transparent rounded-full shadow-lg"
+                    className="bg-transparent rounded-full shadow-lg -mt-2"
                 />
                 <img src={ramka} width={400} className="absolute -mt-28" />
             </div>
