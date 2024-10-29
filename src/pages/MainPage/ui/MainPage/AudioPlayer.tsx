@@ -1,39 +1,9 @@
 import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import styled from 'styled-components';
-
-const PlayerContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fffbfb;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 100%;
-    transition: transform 0.3s;
-`;
-
-const InfoContainer = styled.div`
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-`;
-
-const Title = styled.h3`
-    color: #9d8280;
-    font-family: 'Parisienne', cursive;
-    margin: 0;
-    font-size: 1.1em;
-`;
-
-const Artist = styled.p`
-    color: #7b6e6c;
-    font-size: 0.9em;
-`;
+import audioFile from '../../../../shared/assets/music.mp3'; // Убедитесь, что путь правильный
 
 const ControlsContainer = styled.div`
     display: flex;
@@ -59,31 +29,30 @@ const Button = styled.button`
 
 const AudioPlayer = () => {
     const [playing, setPlaying] = useState(false);
-    const [url] = useState('path/to/your/background-music.mp3'); // Замените на ваш путь к аудио
+
+    useEffect(() => {
+        setPlaying(true); // Начинаем воспроизведение при загрузке страницы
+    }, []);
 
     const togglePlay = () => {
-        setPlaying((prev) => !prev);
+        setPlaying((prev) => !prev); // Переключаем состояние воспроизведения
     };
 
     return (
-        <PlayerContainer className="px-4 py-1 bg-transparent fixed z-50 bottom-1">
-            <InfoContainer>
-                <Title>Название трека</Title>
-                <Artist>Исполнитель</Artist>
-            </InfoContainer>
+        <div className="bg-transparent fixed z-50 right-5 bottom-16 rounded-full">
             <ControlsContainer>
                 <Button onClick={togglePlay}>
                     <FontAwesomeIcon icon={playing ? faStop : faPlay} />
                 </Button>
             </ControlsContainer>
             <ReactPlayer
-                url={url}
+                url={audioFile}
                 playing={playing}
                 loop
                 width="0"
-                height="0" // Скрываем высоту плеера
+                height="0"
             />
-        </PlayerContainer>
+        </div>
     );
 };
 
