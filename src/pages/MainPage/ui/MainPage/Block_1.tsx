@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import photo2 from '../../../../shared/assets/photo2.png';
 import gsap from 'gsap';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Block_1 = () => {
     const blockRef = useRef<HTMLDivElement>(null);
@@ -87,22 +89,16 @@ export const Block_1 = () => {
 
     return (
         <div ref={blockRef} className="bg-[#fffbfb]">
-            <div className="pt-5 flex flex-col justify-center">
-                <div
-                    ref={joinUsRef}
-                    className="font-sans text-center text-[14px]"
-                >
-                    Join us for
+            <div className="py-5 flex flex-col justify-center text-2xl">
+                <div ref={joinUsRef} className="text-center">
+                    Мы приглашаем вас
                 </div>
-                <div
-                    ref={weddingOfRef}
-                    className="font-parisienne pt-2 text-center text-[24px]"
-                >
-                    the wedding of
+                <div ref={weddingOfRef} className="pt-2 text-center">
+                    на нашу свадьбу
                 </div>
             </div>
             <motion.div
-                className="font-parisienne text-[34px] h-[450px] bg-center bg-no-repeat bg-contain flex flex-col justify-center items-center"
+                className="text-[34px] h-[450px] bg-center bg-no-repeat bg-contain flex flex-col justify-center items-center"
                 style={{
                     backgroundImage: `url(${photo2})`,
                     backgroundSize: '145%',
@@ -116,22 +112,17 @@ export const Block_1 = () => {
                     ease: 'easeInOut', // Плавное движение
                 }}
             >
-                <div ref={ashleyRef}>Ashlie</div>
-                <span className="text-[14px] font-sans">to</span>
-                <div ref={gregoryRef}>Gregory</div>
+                <div ref={ashleyRef}>Абай</div>
+                <span className="text-[14px] font-sans">&</span>
+                <div ref={gregoryRef}>Сайора</div>
             </motion.div>
-            <div className="px-10 flex flex-col justify-center items-center pt-14 pb-10">
-                <div className="text-[24px] font-parisienne wedding-details">
-                    September 10 2024
-                </div>
-                <div className="text-[14px] font-sans pt-4 wedding-details">
-                    at six o'clock in the evening
-                </div>
-                <div className="pt-5 text-[14px] font-sans wedding-details">
-                    7018 Dewy Deer Campus, Prussia, New York
-                </div>
-                <div className="pt-5 text-[14px] font-sans wedding-details">
-                    *by August 20th
+            <div className="px-10 text-xl flex flex-col justify-center items-center pt-5 pb-10">
+                <div className=" wedding-details text-2xl">6 ноябрь в 18:00</div>
+                <div className="pt-5 text-center font-sans wedding-details">
+                    <div className="text-center">
+                        <FontAwesomeIcon icon={faLocationDot} />
+                    </div>
+                    <div className='font-semibold'>г.Нукус улица Xожели Гузари 90А</div>
                 </div>
             </div>
         </div>

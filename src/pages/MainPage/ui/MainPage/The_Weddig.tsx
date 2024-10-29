@@ -2,9 +2,8 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Plane } from '@react-three/drei';
 import { useRef } from 'react';
 import * as THREE from 'three';
-import photo5 from '../../../../shared/assets/photo5.png';
 
-const RotatingPlane = () => {
+const RotatingPlane = ({ img }: { img: string }) => {
     const meshRef = useRef<THREE.Mesh>(null);
     const rotationDirection = useRef(1); // 1 для вращения в одну сторону, -1 для другой
 
@@ -13,31 +12,31 @@ const RotatingPlane = () => {
         if (meshRef.current) {
             // Угол поворота
             const angle = meshRef.current.rotation.y * (180 / Math.PI);
-            if (angle >= 25) {
+            if (angle >= 5) {
                 rotationDirection.current = -1; // Меняем направление вращения
-            } else if (angle <= -25) {
+            } else if (angle <= -5) {
                 rotationDirection.current = 1; // Меняем направление вращения
             }
-            meshRef.current.rotation.y += 0.005 * rotationDirection.current; // Уменьшено на 0.005 для медленного вращения
+            meshRef.current.rotation.y += 0.001 * rotationDirection.current; // Уменьшено на 0.005 для медленного вращения
         }
     });
 
     return (
-        <Plane ref={meshRef} args={[10, 10]} position={[0, 0, 0]}>
+        <Plane ref={meshRef} args={[8, 8]} position={[0, 0, 0]}>
             <meshStandardMaterial
                 attach="material"
-                map={new THREE.TextureLoader().load(photo5)}
+                map={new THREE.TextureLoader().load(img)}
                 side={THREE.DoubleSide} // Двусторонний материал
             />
         </Plane>
     );
 };
 
-export const The_Wedding = () => {
+export const The_Wedding = ({ img }: { img: string }) => {
     return (
         <div
             style={{
-                height: '100vh',
+                height: '500px',
                 position: 'relative',
                 backgroundColor: '#fffbfb',
             }}
@@ -46,7 +45,7 @@ export const The_Wedding = () => {
                 <ambientLight intensity={5} />{' '}
                 {/* Уменьшена интенсивность света */}
                 <pointLight position={[10, 10, 10]} />
-                <RotatingPlane />
+                <RotatingPlane img={img} />
             </Canvas>
         </div>
     );

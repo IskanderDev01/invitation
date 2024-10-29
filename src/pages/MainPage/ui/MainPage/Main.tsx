@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import photo1 from '../../../../shared/assets/photo1.png';
-import photo2 from '../../../../shared/assets/photo1.jpg';
+import photo2 from '../../../../shared/assets/p3.jpg';
 import ramka from '../../../../shared/assets/ramka2.png';
 
 export const Main = () => {
@@ -74,14 +74,14 @@ export const Main = () => {
 
     return (
         <div
-            className="pb-10"
+            className="pb-20 overflow-x-hidden overflow-y-hidden"
             style={{
                 background:
                     'linear-gradient(to bottom, #e1d9d4 75%, #fffbfb 25%)',
             }}
         >
             <div
-                className="text-[24px] text-center font-parisienne p-6 mb-5 h-[170px] bg-contain bg-animation"
+                className="text-[24px] text-center p-6 mb-5 h-[170px] bg-contain bg-animation"
                 style={{
                     backgroundImage: `url(${photo1})`,
                     backgroundRepeat: 'no-repeat',
@@ -89,26 +89,24 @@ export const Main = () => {
                     backgroundColor: 'transparent',
                 }}
             >
-                <div className="flex justify-center items-center">
-                    <div ref={textRef1} className="font-parisienne">
-                        Ashlie
-                    </div>
+                <div className="flex-col justify-center items-center">
+                    <div ref={textRef1}>Калжанов Абай</div>
                     <div className="px-4">&</div>
-                    <div ref={textRef2} className="font-parisienne">
-                        Gregory
-                    </div>
+                    <div ref={textRef2}>Салиева Сайора</div>
                 </div>
             </div>
-            <div className="relative flex justify-center -mt-[65px] bg-transparent">
+            <div className="relative flex justify-center bg-transparent">
                 <img
                     ref={imgRef}
                     src={photo2}
                     alt="photo"
-                    width={290}
-                    height={340}
-                    className="bg-transparent rounded-full shadow-lg -mt-2"
+                    height={430}
+                    className="bg-transparent rounded-full shadow-lg mt-6"
                 />
-                <img src={ramka} width={400} className="absolute -mt-28" />
+                <img
+                    src={ramka}
+                    className="absolute h-[730px] w-[450px] -mt-32 z-999"
+                />
             </div>
         </div>
     );
