@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import photo2 from '../../../../shared/assets/photo2.png';
+// import { motion } from 'framer-motion';
+// import photo2 from '../../../../shared/assets/photo2.png';
 import gsap from 'gsap';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -89,7 +89,7 @@ export const Block_1 = () => {
 
     return (
         <div ref={blockRef} className="bg-[#fffbfb]">
-            <div className="py-5 flex flex-col justify-center text-2xl">
+            {/* <div className="py-5 flex flex-col justify-center text-2xl">
                 <div ref={joinUsRef} className="text-center">
                     Мы приглашаем вас
                 </div>
@@ -115,14 +115,14 @@ export const Block_1 = () => {
                 <div ref={ashleyRef}>Абай</div>
                 <span className="text-[14px] font-sans">&</span>
                 <div ref={gregoryRef}>Сайора</div>
-            </motion.div>
+            </motion.div> */}
             <div className="px-10 text-xl flex flex-col justify-center items-center pt-5 pb-10">
                 <div className=" wedding-details text-2xl">6 ноябрь в 18:00</div>
                 <div className="pt-5 text-center font-sans wedding-details">
                     <div className="text-center">
                         <FontAwesomeIcon icon={faLocationDot} />
                     </div>
-                    <div className='font-semibold'>г.Нукус улица Xожели Гузари 90А</div>
+                    <div className='font-semibold'>г.Нукус улица Xожели Гузари 90А Golden Palace</div>
                 </div>
             </div>
         </div>
