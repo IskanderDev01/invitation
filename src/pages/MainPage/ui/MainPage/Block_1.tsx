@@ -120,7 +120,7 @@ export const Block_1 = () => {
                 <div className=" wedding-details text-2xl">
                     6 ноябрь в 18:00
                 </div>
-                <div className="pt-5 text-center font-sans wedding-details">
+                <div className="pt-5 text-center text-2xl wedding-details">
                     <div className="text-center">
                         <FontAwesomeIcon icon={faLocationDot} />
                     </div>

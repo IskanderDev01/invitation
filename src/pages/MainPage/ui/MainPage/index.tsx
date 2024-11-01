@@ -4,7 +4,7 @@ import { InvitationForm } from './Forma';
 import { Main } from './Main';
 import { Our_story } from './Our_story';
 import { The_Wedding } from './The_Weddig';
-import photo2 from '../../../../shared/assets/p2.jpg';
+import photo2 from '../../../../shared/assets/p1.jpg';
 import AudioPlayer from './AudioPlayer';
 
 export const WeddingInvitation = () => {

@@ -118,7 +118,7 @@ export const Ceremony = () => {
                 ref={ceremonyRef}
                 src={ceremony}
                 width={300}
-                className="rounded-lg"
+                className="rounded-lg bg-[#9D8280]"
             />
         </div>
     );
