@@ -1,6 +1,9 @@
 import { useState, useRef, FormEvent, ChangeEvent } from 'react';
 import axios from 'axios';
 import gsap from 'gsap';
+import videoURL from '../../../../shared/assets/video.mp4';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const InvitationForm = () => {
     const [fullName, setFullName] = useState<string>('');
@@ -74,6 +77,18 @@ export const InvitationForm = () => {
                     {message}
                 </div>
             )}
+            <a href={videoURL} download>
+                <button
+                    type="submit"
+                    className="border-none w-[200px] px-4 py-3 mt-4 text-white bg-gradient-to-r from-[#9D8280] to-[#e1d9d4] rounded-lg shadow-md hover:shadow-lg focus:outline-none transition-all duration-300 transform hover:scale-105"
+                >
+                    скачать видео{' '}
+                    <FontAwesomeIcon
+                        icon={faArrowDown}
+                        className="text-[15px]"
+                    />
+                </button>
+            </a>
         </div>
     );
 };

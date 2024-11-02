@@ -90,9 +90,9 @@ export const Main = () => {
                 }}
             >
                 <div className="flex-col justify-center items-center">
-                    <div ref={textRef1}>Калжанов Абай</div>
+                    <div ref={textRef1}>Абай</div>
                     <div className="px-4">&</div>
-                    <div ref={textRef2}>Салиева Сайора</div>
+                    <div ref={textRef2}>Сайора</div>
                 </div>
             </div>
             <div className="relative flex justify-center bg-transparent">

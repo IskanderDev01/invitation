@@ -112,9 +112,9 @@ export const Block_1 = () => {
                     ease: 'easeInOut', // Плавное движение
                 }}
             >
-                <div ref={ashleyRef}>Калжанов Абай</div>
+                <div ref={ashleyRef}>Абай</div>
                 <span className="text-[14px] font-sans">&</span>
-                <div ref={gregoryRef}>Салиева Сайора</div>
+                <div ref={gregoryRef}>Сайора</div>
             </motion.div>
             <div className="px-10 text-xl flex flex-col justify-center items-center pt-5 pb-10">
                 <div className=" wedding-details text-2xl">
