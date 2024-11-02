@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import photo1 from '../../../../shared/assets/photo1.png';
-import photo2 from '../../../../shared/assets/pp.jpg';
+import photo2 from '../../../../shared/assets/p4.jpg';
 import ramka from '../../../../shared/assets/ramka2.png';
 
 export const Main = () => {
@@ -100,12 +100,12 @@ export const Main = () => {
                     ref={imgRef}
                     src={photo2}
                     alt="photo"
-                    height={500}
+                    height={430}
                     className="bg-transparent rounded-full shadow-lg mt-6"
                 />
                 <img
                     src={ramka}
-                    className="absolute h-[850px] w-[450px] -mt-[150px] ml-2 z-999"
+                    className="absolute h-[720px] w-[450px] -mt-[120px] z-999"
                 />
             </div>
         </div>

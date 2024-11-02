@@ -89,7 +89,7 @@ export const Block_1 = () => {
 
     return (
         <div ref={blockRef} className="bg-[#fffbfb]">
-            <div className="py-5 flex flex-col justify-center text-2xl">
+            <div className="py-5 flex flex-col justify-center text-3xl">
                 <div ref={joinUsRef} className="text-center">
                     Мы приглашаем вас
                 </div>
@@ -112,9 +112,9 @@ export const Block_1 = () => {
                     ease: 'easeInOut', // Плавное движение
                 }}
             >
-                <div ref={ashleyRef}>Абай</div>
+                <div ref={ashleyRef}>Калжанов Абай</div>
                 <span className="text-[14px] font-sans">&</span>
-                <div ref={gregoryRef}>Сайора</div>
+                <div ref={gregoryRef}>Салиева Сайора</div>
             </motion.div>
             <div className="px-10 text-xl flex flex-col justify-center items-center pt-5 pb-10">
                 <div className=" wedding-details text-2xl">
