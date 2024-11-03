@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import './styles/index.scss';
 import { AppRouter } from './providers/router';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
     return (
@@ -8,6 +9,7 @@ function App() {
             <Suspense fallback="">
                 <>{<AppRouter />}</>
             </Suspense>
+            <Analytics />
         </div>
     );
 }
